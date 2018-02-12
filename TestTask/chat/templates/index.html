@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="index_head">
+        <h1>
+            Select login method
+        </h1>
+
+        <div id="t1" class="header_menu">
+            <ul id="menu">
+                <li>
+                    <a href="{% url 'social:begin' 'twitter'  %}">
+                      Twitter
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'social:begin' 'google-oauth2' %}">
+                        Google+
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'posts' %}">
+                        Anonymously
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+{% endblock content%}

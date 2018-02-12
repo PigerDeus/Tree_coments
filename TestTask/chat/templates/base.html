@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8"/>
+		<title>TestTask</title>
+		  <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+		<script>
+		function Focus_el(name, obj) {
+			document.getElementById(name).message.focus();
+			document.getElementById(name).parent_id.value = obj.id;
+		}
+		</script>
+	</head>
+  <body>
+    {% block content %}
+    {% endblock %}
+  </body>
+</html>

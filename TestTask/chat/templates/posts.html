@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+{% block content %}
+	<div class="wall_posts">
+
+	</div>
+	{% if user.is_authenticated %}
+    <p>Hello, {{ user.username }}</p>
+
+		{# {!-- FORM --} #}
+		<form action="{% url 'posts'  %}" method="post" id='Send_form'>
+			{% csrf_token %}
+	    <label for="team_name">Enter your message: </label>
+			<textarea
+				name="message"
+				rows="4"
+				cols="60"
+				value = "Text"></textarea>
+			<input type="text"
+				id = "parent_id"
+				name="parent_id"
+				value="0"
+				style="height: 0;
+			  width: 0;
+			  visibility: hidden;">
+	    <input
+			 type="submit"
+			 value="Send">
+		</form>
+		{# {!-- END FORM --} #}
+
+	{% else %}
+		To add or comment on messages, follow these steps:
+		<a class="lead" href="{% url 'login' %}"> Login</a>
+	{% endif %}
+
+	<ul id="commenters">
+	{% for c in coment %}
+			<li id="{{c.id}}" class="coments" >
+					<p class="poster">
+						{{c.author}}
+						<span class="pub_date">- {{c.public_date|date:"M, Y, d, H: m"}}</span>
+					</p>
+					<div class="message_text">
+						<p class="comment_message">{{c.text}}</p>
+						<button type = "button" class="reply_button" id = "{{c.id}}" onclick="Focus_el('Send_form', this )">Reply</button>
+					</div>
+			</li>
+			{% for sc in sub_coment %}
+			{% if sc.coment.id == c.id %}
+					<li id="{{sc.id}}" class="coments" style="margin-left:{{sc.path|length}}em;">
+					<p class="poster">
+						{{sc.author}}
+						<span class="pub_date">- {{sc.pub_date|date:"M, Y, d, H: m"}}</span>
+					</p>
+					<div class="message_text">
+						<p class="comment_message">{{sc.text}}</p>
+						<button type = "button" class="reply_button" id = "{{c.id}}c{{sc.id}}" onclick="Focus_el('Send_form', this )">Reply</button>
+					</div>
+				</li>
+			{% endif %}
+			{% endfor %}
+	{% empty %}
+			<li>There are currently no comments. You can be first!</li>
+	{% endfor %}
+	</ul>
+</div>
+{% endblock content %}

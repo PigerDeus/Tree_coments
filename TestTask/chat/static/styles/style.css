@@ -1,0 +1,127 @@
+/* Import other css */
+
+@import url('reset.css');
+@font-face {
+    font-family: Autobus-Bold;
+    src: url(../fonts/Autobus-Bold.ttf);
+}
+
+body {
+    background: #222222;
+    font-family: sans-serif;
+    color: orange;
+}
+
+.index_head {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 100%;
+    position: fixed;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.index_head h1 {
+    font-size: 58px;
+    color: orange;
+    font-family: Autobus-Bold;
+    line-height: 2em;
+}
+
+a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.header_menu {
+    color: #ffffff;
+}
+
+.header_hidden {
+    text-transform: uppercase;
+    color: #fff;
+    background: #ff5603;
+    cursor: pointer;
+    margin-top: 12.5px;
+    padding: 5px 15px;
+    border-radius: 3px;
+    margin-right: 15px;
+    display: none;
+}
+
+.header_menu li a {
+    position: relative;
+}
+
+.header_menu li a:hover::after {
+    content: '';
+    margin-top: 5px;
+    position: absolute;
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: -webkit-gradient(linear, left top, right top, color-stop(60%, #393939), color-stop(60%, #ffac46));
+    background: -webkit-linear-gradient(left, #393939 60%, #ffac46 60%);
+    background: -o-linear-gradient(left, #393939 60%, #ffac46 60%);
+    background: linear-gradient(to right, #393939 60%, #ffac46 60%);
+}
+
+.header_menu li {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.header_menu li p {
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.message_text {
+    display: block;
+    background: #333333;
+}
+
+.commenters {
+    padding: 10px;
+}
+
+.comment_message {
+    padding: 10px;
+    color: #fafffe;
+    width: 80%;
+    word-break: break-word;
+}
+
+.wall_posts {
+    color: orange;
+}
+
+.coments {
+    padding: 15px;
+}
+
+.poster {
+    text-transform: capitalize;
+}
+
+.pub_date {
+    color: #ffda0e;
+}
+
+.reply_button {
+    background: none;
+    border: 0;
+    padding: 10px;
+    color: #8dff00;
+    font-weight: bold;
+}
