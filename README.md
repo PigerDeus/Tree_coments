@@ -6,7 +6,7 @@
 
 pip3 install social-auth-app-django
 
-# or running
+# or in root project directory write:
 
 pip3 install -r requirements.txt
 
